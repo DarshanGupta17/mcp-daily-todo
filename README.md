@@ -1,4 +1,4 @@
-# MCP Playground — AI-Powered Daily Todo Manager
+# MCP Playground, AI-Powered Daily Todo Manager
 
 An educational demo that shows the **full Model Context Protocol (MCP) loop** in a real UI:
 
@@ -146,7 +146,7 @@ Watch the **Live tool execution** feed for each MCP call.
 
 | Variable | Default | Description |
 |----------|---------|-------------|
-| `GEMINI_API_KEY` | — | Required. Never sent to the browser. |
+| `GEMINI_API_KEY` | your_api_key | Required. Never sent to the browser. |
 | `GEMINI_MODEL` | `gemini-2.5-flash` | Model with tool calling |
 | `APP_TIMEZONE` | `Asia/Kolkata` | Used in system prompt and calendar |
 | `DATABASE_PATH` | `data/tasks.db` | SQLite file |
