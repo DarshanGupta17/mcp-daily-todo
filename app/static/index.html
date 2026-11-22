@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MCP Playground — Daily Todo Manager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="top-bar">
+      <div class="brand">
+        <span class="brand-dot"></span>
+        <h1>MCP Playground</h1>
+        <span class="brand-sub">AI · MCP · Tasks</span>
+      </div>
+      <div class="top-meta" id="top-meta">Loading…</div>
+    </header>
+
+    <main class="dashboard-grid">
+      <!-- Left: Chat -->
+      <section class="panel panel-chat" aria-label="AI Assistant">
+        <header class="panel-header">
+          <h2>AI Task Assistant</h2>
+          <div class="panel-badges">
+            <span class="badge" id="model-badge">—</span>
+            <span class="badge badge-status" id="ai-status">Connecting</span>
+          </div>
+        </header>
+        <div class="chat-messages" id="chat-messages"></div>
+        <div class="chat-thinking hidden" id="chat-thinking">
+          <span class="pulse"></span> Gemini is thinking…
+        </div>
+        <div class="chat-suggestions" id="chat-suggestions" aria-label="Suggested prompts"></div>
+        <footer class="chat-input-row">
+          <input type="text" id="chat-input" placeholder="Ask to add, move, or list tasks…" autocomplete="off" />
+          <button type="button" id="chat-send" class="btn-primary">Send</button>
+        </footer>
+      </section>
+
+      <!-- Center: MCP Monitor -->
+      <section class="panel panel-mcp" aria-label="MCP Tools">
+        <header class="panel-header">
+          <h2>MCP Server</h2>
+          <div class="mcp-stats">
+            <span id="mcp-connection" class="badge badge-warn">Disconnected</span>
+            <span class="stat-pill"><span id="tool-count">0</span> tools</span>
+            <span class="stat-pill"><span id="exec-total">0</span> runs</span>
+          </div>
+        </header>
+        <div class="tools-grid" id="tools-grid"></div>
+        <div class="execution-section">
+          <h3>Live tool execution</h3>
+          <div class="execution-feed" id="execution-feed"></div>
+        </div>
+      </section>
+
+      <!-- Right: Calendar -->
+      <section class="panel panel-calendar" aria-label="Calendar and tasks">
+        <header class="panel-header calendar-header">
+          <div>
+            <h2>Daily Tasks</h2>
+            <p class="read-only-hint">Read-only · changes via MCP tools only</p>
+          </div>
+          <div class="calendar-controls">
+            <button type="button" class="btn-ghost" id="prev-month" aria-label="Previous month">‹</button>
+            <span id="month-label"></span>
+            <button type="button" class="btn-ghost" id="next-month" aria-label="Next month">›</button>
+            <button type="button" class="btn-ghost" id="today-btn">Today</button>
+            <div class="view-toggle">
+              <button type="button" class="toggle active" data-view="month">Month</button>
+              <button type="button" class="toggle" data-view="week">Week</button>
+            </div>
+          </div>
+        </header>
+        <div class="calendar-shell" id="calendar-shell">
+          <div class="calendar-wrap" id="calendar-wrap"></div>
+          <div class="cal-day-popover hidden" id="cal-day-popover" role="dialog" aria-modal="true" hidden>
+            <header class="cal-popover-head">
+              <span id="cal-popover-date"></span>
+              <button type="button" class="cal-popover-close" id="cal-popover-close" aria-label="Close">×</button>
+            </header>
+            <div class="cal-popover-body" id="cal-popover-body"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="/static/js/app.js"></script>
+</body>
+</html>
